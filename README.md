@@ -1,3 +1,8 @@
+
+| Nama | NRP | Kelas |
+|----------|-----------|-----------|
+| Iftala Zahri Sukmana | 5025221002 | Pemrograman Jaringan C |
+
 # Sistem File Server
 
 Repositori ini berisi implementasi file server yang dibangun menggunakan pemrograman socket Python. Sistem ini memungkinkan klien untuk melakukan operasi file dasar (melihat daftar, mengunduh, mengunggah, menghapus) melalui protokol jaringan sederhana.
@@ -93,29 +98,6 @@ Menyediakan antarmuka command-line bagi pengguna untuk berinteraksi dengan file 
 - Memproses konten file terenkode base64
 - Mengimplementasikan fungsi untuk melihat daftar, mengunduh, mengunggah, dan menghapus file
 
-## Konsep Pemrograman Jaringan
-
-Implementasi ini menampilkan beberapa konsep kunci pemrograman jaringan:
-
-1. **Pemrograman Socket**: Menggunakan library socket Python untuk membuat koneksi TCP antara klien dan server.
-
-2. **Arsitektur Client-Server**: Mengimplementasikan model client-server klasik untuk aplikasi terdistribusi.
-
-3. **Desain Protokol**: Mendefinisikan protokol berbasis teks sederhana dengan pola permintaan-respons, menunjukkan bagaimana protokol menyusun komunikasi jaringan.
-
-4. **Serialisasi Data**: Menggunakan JSON untuk pertukaran data terstruktur dan encoding base64 untuk transfer konten file biner.
-
-5. **Manajemen Koneksi**: Mendemonstrasikan cara membuat, mempertahankan, dan menutup koneksi jaringan.
-
-## Model Konkurensi
-
-Server menggunakan model konkurensi thread-per-klien:
-- Setiap koneksi klien memunculkan thread baru
-- Thread beroperasi secara independen untuk memproses permintaan klien
-- Thread server utama terus menerima koneksi baru
-
-Pendekatan ini memungkinkan beberapa klien dilayani secara bersamaan sambil mempertahankan pemisahan antara handler klien.
-
 ## Pengaturan dan Penggunaan
 
 ### Pengaturan Server
@@ -170,7 +152,3 @@ Pendekatan ini memungkinkan beberapa klien dilayani secara bersamaan sambil memp
 4. **Operasi Konkuren**:
    - Sementara permintaan satu klien sedang diproses, server dapat menerima dan menangani koneksi klien baru
    - Setiap klien beroperasi di threadnya sendiri secara independen
-
-## Kesimpulan
-
-Sistem file server ini mendemonstrasikan konsep dasar pemrograman jaringan dan sistem operasi. Ini menyediakan implementasi sederhana namun fungsional dari sistem file terdistribusi dengan operasi dasar. Meskipun tidak siap untuk produksi karena keterbatasan keamanan, ini berfungsi sebagai contoh edukatif tentang arsitektur client-server, pemrograman socket, dan pemrosesan konkuren.
