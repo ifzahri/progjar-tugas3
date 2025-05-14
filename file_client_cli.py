@@ -99,8 +99,31 @@ def remote_delete(filename=""):
 if __name__ == '__main__':
     server_address = ('172.16.16.102', 6667)
     
-    # Example usage
-    remote_list()
-    # remote_get('donalbebek.jpg')
-    # remote_upload('test.txt')
-    # remote_delete('test.txt')
+    logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s - %(message)s')
+    logging.warning("Client started")
+    
+    while True:
+        print("Pilih perintah:")
+        print("1. LIST")
+        print("2. GET <filename>")
+        print("3. UPLOAD <filepath>")
+        print("4. DELETE <filename>")
+        print("5. EXIT")
+        
+        command = input("Masukkan perintah: ").strip()
+        
+        if command == "1":
+            remote_list()
+        elif command.startswith("2 "):
+            filename = command[3:]
+            remote_get(filename)
+        elif command.startswith("3 "):
+            filepath = command[3:]
+            remote_upload(filepath)
+        elif command.startswith("4 "):
+            filename = command[3:]
+            remote_delete(filename)
+        elif command == "5":
+            break
+        else:
+            print("Perintah tidak valid")
